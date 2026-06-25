@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm So Sorry 🎀🥺</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="screen1" class="screen active">
+        <img src="sedih.gif" class="gif">
+        <h2>hi... masih ngambek ya? masukin password dulu yuk 🎀🥺</h2>
+        <div class="dots"><span id="dot1"></span><span id="dot2"></span><span id="dot3"></span><span id="dot4"></span></div>
+        <div class="keypad">
+            <button onclick="press(1)">1</button><button onclick="press(2)">2</button><button onclick="press(3)">3</button>
+            <button onclick="press(4)">4</button><button onclick="press(5)">5</button><button onclick="press(6)">6</button>
+            <button onclick="press(7)">7</button><button onclick="press(8)">8</button><button onclick="press(9)">9</button>
+            <button class="empty"></button><button onclick="press(0)">0</button><button onclick="clearPin()">C</button>
+        </div>
+        <p class="clue">clue: tanggal kita pertama kali kenal 🩰🤍</p>
+    </div>
+
+    <div id="screen2" class="screen">
+        <img src="mohon.gif" class="gif">
+        <h2>haiii sayangku cintaku... aku tau kamu lagi marah banget 😭🎀</h2>
+        <button class="btn" onclick="nextScreen('screen2', 'screen3')">lanjut..</button>
+    </div>
+
+    <div id="screen3" class="screen">
+        <img src="ukur.gif" class="gif">
+        <h2>Berapa persen tingkat kemarahan kamu sekarang? 👀🍓</h2>
+        <h2 id="kangenValue" style="font-size: 2rem;">100%</h2>
+        <input type="range" id="kangenSlider" min="0" max="100" value="100" oninput="updateSlider()">
+        <p id="sliderNote">turunin ke 0% pelan-pelan dong biar aku dimaafin.. 🥺🎀</p>
+        <button id="btnKangen" class="btn hidden" onclick="nextScreen('screen3', 'screen4')">Makasih udah ngga marah! 🥺</button>
+    </div>
+
+    <div id="screen4" class="screen">
+        <img src="janji.gif" class="gif">
+        <h2>Aku janji bakal lakuin ini buat kamu 🎀:</h2>
+        <div class="checklist">
+            <label><input type="checkbox" onchange="checkChecklist()"> Gak bakal nakal lagi 🌸</label>
+            <label><input type="checkbox" onchange="checkChecklist()"> Bakal lebih dengerin kamu 🩰</label>
+            <label><input type="checkbox" onchange="checkChecklist()"> Selalu sayang kamu terus 🍓</label>
+        </div>
+        <button id="btnCheck" class="btn hidden" onclick="nextScreen('screen4', 'screen5')">Janji ya! 🎀🤝</button>
+    </div>
+
+    <div id="screen5" class="screen">
+        <img src="takut.gif" class="gif">
+        <h2>Tapi jujur, masih ada niat buat diemin aku ngga? 🥺🎀</h2>
+        <div class="run-container" id="runContainer">
+            <button class="btn btn-yes" onclick="nextScreen('screen5', 'screen6')">Gak ada kok 🤍</button>
+            <button class="btn btn-secondary btn-run" id="btnRun" onmouseover="moveButton()" onclick="moveButton()">MASIH!!</button>
+        </div>
+    </div>
+
+    <div id="screen6" class="screen">
+        <img src="peluk.gif" class="gif">
+        <h2>Boleh minta peluk dulu biar kamu ndak cemberut? 🎀</h2>
+        <p>Klik tombol peluk 5 kali ya! 🩰</p>
+        <h2 id="hugCount">0</h2>
+        <button class="btn" onclick="rechargeHug()">PELUK! 🤗</button>
+    </div>
+
+    <div id="screen7" class="screen">
+        <img src="kado.gif" class="gif">
+        <h2>3 Alasan Kenapa Kita Gak Boleh Berantem Lama-lama 🎀:</h2>
+        <p style="margin-bottom: 15px; font-size: 0.9rem;">Buka semuanya ya 👇</p>
+        
+        <button class="btn btn-secret" onclick="openSecret(this, 'Aku kangen bgt senyum kamu 🥺')">Buka Surat 1 💌</button>
+        <button class="btn btn-secret" onclick="openSecret(this, 'Aku ngerasa bersalah & nyesel 😭')">Buka Surat 2 💌</button>
+        <button class="btn btn-secret" onclick="openSecret(this, 'Kita terlalu gemes buat musuhan 🩰')">Buka Surat 3 💌</button>
+        
+        <button id="btnLanjutSecret" class="btn hidden" style="margin-top: 25px;" onclick="nextScreen('screen7', 'screen8')">Lanjut 🎀</button>
+    </div>
+
+    <div id="screen8" class="screen">
+        <img src="mikir.gif" class="gif">
+        <h2>Gimana? Udah luluh belum hatinya bacanya? 👉👈🎀</h2>
+        <div class="btn-group">
+            <button class="btn" onclick="nextScreen('screen8', 'screen9')">Udah luluh 🤍</button>
+            <button class="btn btn-secondary" onclick="alert('Pliss luluh donggg, aku udah effort nih bikin ini 🥺🎀')">Masih gengsi</button>
+        </div>
+    </div>
+
+    <div id="screen9" class="screen">
+        <img src="bunga.gif" class="gif">
+        <h2>Thank you for being patient with me 🥺🎀🤍</h2>
+        <div class="letter-box">
+            <p>Sayangku, maafin aku ya. Aku tau kata maaf aja mungkin ngga cukup, tapi aku bener-bener tulus pengen kita baik lagi.</p>
+            <p>Makasih udah mau sabar dan ngga nyerah sama sifat aku yang kadang nyebelin. Aku janji bakal jadi versi terbaik buat kamu.</p>
+            <p>I love you to the moon and back! 🎀✨</p>
+        </div>
+        <button class="btn" onclick="nextScreen('screen9', 'screen10')">Liat foto cantik kamu 📸</button>
+    </div>
+
+    <div id="screen10" class="screen">
+        <h2>Foto cantik kamu 🎀📸</h2>
+        <div class="photo-gallery">
+            <div class="photo-frame polaroid-1"><img src="foto1.jpg" class="custom-photo" onclick="openModal(this)"></div>
+            <div class="photo-frame polaroid-2"><img src="foto2.jpg" class="custom-photo" onclick="openModal(this)"></div>
+            <div class="photo-frame polaroid-3"><img src="foto3.jpg" class="custom-photo" onclick="openModal(this)"></div>
+            <div class="photo-frame polaroid-4"><img src="foto4.gif" class="custom-photo" onclick="openModal(this)"></div>
+        </div>
+        <p class="caption">forever with you 🎀🤍</p>
+        <button class="btn btn-secondary" onclick="location.reload()">Mulai dari Awal</button>
+    </div>
+
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="expandedImg">
+    </div>
+
+    <audio id="bgMusic" loop><source src="lagu.mp3" type="audio/mpeg"></audio>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

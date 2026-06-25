@@ -1,0 +1,60 @@
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Quicksand', sans-serif; }
+body { background-color: #ffe4e1; /* MistyRose - Soft Pink */ color: #ff4757; display: flex; justify-content: center; align-items: center; min-height: 100vh; overflow-x: hidden; padding: 20px 0; }
+
+.screen { display: none; text-align: center; width: 95%; max-width: 400px; background: white; padding: 25px; border-radius: 25px; box-shadow: 0 10px 30px rgba(255, 182, 193, 0.5); border: 2px dashed #ffb6c1; animation: fadeIn 0.5s ease; margin: auto; }
+.screen.active { display: block; }
+.hidden { display: none !important; }
+
+.gif { width: 140px; height: 140px; object-fit: contain; margin-bottom: 15px; }
+h2 { font-size: 1.1rem; margin-bottom: 15px; color: #ff6b81; line-height: 1.4; }
+p { color: #ff9a9e; }
+
+/* Keypad & Dots */
+.dots { display: flex; justify-content: center; gap: 8px; margin-bottom: 15px; }
+.dots span { width: 12px; height: 12px; border: 2px solid #ffb6c1; border-radius: 50%; }
+.dots span.filled { background-color: #ff6b81; border-color: #ff6b81; }
+.keypad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.keypad button { background-color: #ffb6c1; color: white; border: none; border-radius: 15px; padding: 12px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: 0.2s; }
+.keypad button:active { background-color: #ff6b81; transform: scale(0.95); }
+.keypad button.empty { background: transparent; cursor: default; }
+
+.clue { font-size: 0.9rem; color: #ff9a9e; margin-top: 10px; font-style: italic; }
+
+/* Checklist */
+.checklist { text-align: left; margin: 15px 0; display: flex; flex-direction: column; gap: 10px; background: #fff0f5; padding: 15px; border-radius: 15px; border: 1px dashed #ffb6c1; }
+.checklist label { font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 10px; color: #ff6b81; font-weight: bold; }
+input[type="checkbox"] { accent-color: #ff6b81; width: 18px; height: 18px; }
+
+/* Slider & Buttons */
+input[type=range] { width: 100%; margin: 15px 0; accent-color: #ff6b81; }
+#kangenValue, #hugCount { color: #ff4757; }
+.btn { background-color: #ffb6c1; color: white; border: none; padding: 12px; border-radius: 20px; font-weight: bold; cursor: pointer; width: 100%; margin-top: 10px; transition: 0.2s; box-shadow: 0 4px 10px rgba(255, 182, 193, 0.4); }
+.btn:hover { background-color: #ff6b81; }
+
+/* Tombol Disable (Saat Surat Terbuka) */
+.btn:disabled { background-color: #ff6b81; cursor: not-allowed; box-shadow: none; transform: none; font-size: 0.9rem;}
+
+.btn-secondary { background-color: #fff0f5; color: #ff6b81; border: 1px solid #ffb6c1; box-shadow: none; }
+.btn-secondary:hover { background-color: #ffe4e1; }
+.btn-group { display: flex; gap: 10px; }
+
+/* Run Button */
+.run-container { position: relative; height: 100px; margin-top: 15px; }
+.btn-run { position: absolute; width: 45%; transition: 0.15s ease; }
+.btn-yes { position: absolute; width: 45%; left: 0; }
+
+/* Letter & Photo */
+.letter-box { background: #fff0f5; padding: 15px; border-radius: 15px; text-align: left; height: 180px; overflow-y: scroll; font-size: 0.9rem; line-height: 1.6; border: 1px dashed #ffb6c1; margin-bottom: 15px; color: #ff4757; }
+.photo-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 10px; }
+.photo-frame { background: white; padding: 6px; padding-bottom: 20px; border-radius: 5px; box-shadow: 0 4px 15px rgba(255, 182, 193, 0.4); position: relative; border: 1px solid #ffe4e1; }
+.polaroid-1 { transform: rotate(-4deg); } .polaroid-2 { transform: rotate(3deg); }
+.polaroid-3 { transform: rotate(2deg); } .polaroid-4 { transform: rotate(-3deg); }
+.custom-photo { width: 100%; height: 90px; object-fit: cover; cursor: pointer; border-radius: 3px; }
+.caption { font-size: 0.9rem; color: #ff6b81; margin-top: 15px; font-weight: bold; }
+
+/* Modal */
+.modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(255, 182, 193, 0.8); backdrop-filter: blur(5px); align-items: center; justify-content: center; }
+.modal-content { max-width: 90%; border-radius: 10px; border: 3px dashed white; }
+.close { position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; cursor: pointer; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
