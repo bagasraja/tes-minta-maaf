@@ -1,4 +1,4 @@
-const correctPin = "1404"; 
+const correctPin = "1009"; 
 let currentPin = "";
 let isMusicPlaying = false; 
 
